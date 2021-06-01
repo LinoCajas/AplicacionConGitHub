@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LinqCuarto" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="WebSettings" ConnectionString="Data Source=LIO-PC\SQLEXPRESS;Initial Catalog=LinqCuarto;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LinqCuartoConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.0.2;Initial Catalog=LinqCuarto;Integrated Security=True ;User ID=sa;Password=basquet;" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LinqCuartoConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.tbl_persona" Member="tbl_persona">
     <Type Name="tbl_persona">
+
       <Column Name="per_id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="per_nombre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="per_direccion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
