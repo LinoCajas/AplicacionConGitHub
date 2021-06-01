@@ -16,5 +16,25 @@ namespace AplicacionConGitHub
                 DateTime d = DateTime.Now;
             }
         }
+
+        protected void btn_update_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_inset_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btn_delete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void lnk_ver_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
