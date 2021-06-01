@@ -102,9 +102,9 @@
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="DataClasses1.dbml.layout">
+    <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
-    </Content>
+    </None>
     <Content Include="assets\css\bootstrap-grid.css.map" />
     <Content Include="assets\css\bootstrap-grid.min.css.map" />
     <Content Include="assets\css\bootstrap-reboot.css.map" />

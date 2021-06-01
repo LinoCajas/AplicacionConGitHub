@@ -9,12 +9,19 @@ namespace AplicacionConGitHub
 {
     public partial class Index : System.Web.UI.Page
     {
+        DataClasses1DataContext dc = new DataClasses1DataContext();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                DateTime d = DateTime.Now;
+                cargarDatos();
             }
+        }
+
+        private void cargarDatos()
+        {
+            GridView1.DataSource = dc.MostrarPersona();
+            GridView1.DataBind();
         }
 
         protected void btn_update_Click(object sender, EventArgs e)

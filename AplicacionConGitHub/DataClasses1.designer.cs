@@ -22,6 +22,7 @@ namespace AplicacionConGitHub
 	using System;
 	
 	
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="LinqCuarto")]
 	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
 	{
 		
@@ -29,7 +30,16 @@ namespace AplicacionConGitHub
 		
     #region Definiciones de métodos de extensibilidad
     partial void OnCreated();
+    partial void Inserttbl_persona(tbl_persona instance);
+    partial void Updatetbl_persona(tbl_persona instance);
+    partial void Deletetbl_persona(tbl_persona instance);
     #endregion
+		
+		public DataClasses1DataContext() : 
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["LinqCuartoConnectionString"].ConnectionString, mappingSource)
+		{
+			OnCreated();
+		}
 		
 		public DataClasses1DataContext(string connection) : 
 				base(connection, mappingSource)
@@ -53,6 +63,235 @@ namespace AplicacionConGitHub
 				base(connection, mappingSource)
 		{
 			OnCreated();
+		}
+		
+		public System.Data.Linq.Table<tbl_persona> tbl_persona
+		{
+			get
+			{
+				return this.GetTable<tbl_persona>();
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.MostrarPersona")]
+		public ISingleResult<MostrarPersonaResult> MostrarPersona()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<MostrarPersonaResult>)(result.ReturnValue));
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.tbl_persona")]
+	public partial class tbl_persona : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _per_id;
+		
+		private string _per_nombre;
+		
+		private string _per_direccion;
+		
+		private System.Nullable<int> _per_edad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onper_idChanging(int value);
+    partial void Onper_idChanged();
+    partial void Onper_nombreChanging(string value);
+    partial void Onper_nombreChanged();
+    partial void Onper_direccionChanging(string value);
+    partial void Onper_direccionChanged();
+    partial void Onper_edadChanging(System.Nullable<int> value);
+    partial void Onper_edadChanged();
+    #endregion
+		
+		public tbl_persona()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int per_id
+		{
+			get
+			{
+				return this._per_id;
+			}
+			set
+			{
+				if ((this._per_id != value))
+				{
+					this.Onper_idChanging(value);
+					this.SendPropertyChanging();
+					this._per_id = value;
+					this.SendPropertyChanged("per_id");
+					this.Onper_idChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_nombre", DbType="VarChar(50)")]
+		public string per_nombre
+		{
+			get
+			{
+				return this._per_nombre;
+			}
+			set
+			{
+				if ((this._per_nombre != value))
+				{
+					this.Onper_nombreChanging(value);
+					this.SendPropertyChanging();
+					this._per_nombre = value;
+					this.SendPropertyChanged("per_nombre");
+					this.Onper_nombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_direccion", DbType="VarChar(50)")]
+		public string per_direccion
+		{
+			get
+			{
+				return this._per_direccion;
+			}
+			set
+			{
+				if ((this._per_direccion != value))
+				{
+					this.Onper_direccionChanging(value);
+					this.SendPropertyChanging();
+					this._per_direccion = value;
+					this.SendPropertyChanged("per_direccion");
+					this.Onper_direccionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_edad", DbType="Int")]
+		public System.Nullable<int> per_edad
+		{
+			get
+			{
+				return this._per_edad;
+			}
+			set
+			{
+				if ((this._per_edad != value))
+				{
+					this.Onper_edadChanging(value);
+					this.SendPropertyChanging();
+					this._per_edad = value;
+					this.SendPropertyChanged("per_edad");
+					this.Onper_edadChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	public partial class MostrarPersonaResult
+	{
+		
+		private int _per_id;
+		
+		private string _per_nombre;
+		
+		private string _per_direccion;
+		
+		private System.Nullable<int> _per_edad;
+		
+		public MostrarPersonaResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_id", DbType="Int NOT NULL")]
+		public int per_id
+		{
+			get
+			{
+				return this._per_id;
+			}
+			set
+			{
+				if ((this._per_id != value))
+				{
+					this._per_id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_nombre", DbType="VarChar(50)")]
+		public string per_nombre
+		{
+			get
+			{
+				return this._per_nombre;
+			}
+			set
+			{
+				if ((this._per_nombre != value))
+				{
+					this._per_nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_direccion", DbType="VarChar(50)")]
+		public string per_direccion
+		{
+			get
+			{
+				return this._per_direccion;
+			}
+			set
+			{
+				if ((this._per_direccion != value))
+				{
+					this._per_direccion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_per_edad", DbType="Int")]
+		public System.Nullable<int> per_edad
+		{
+			get
+			{
+				return this._per_edad;
+			}
+			set
+			{
+				if ((this._per_edad != value))
+				{
+					this._per_edad = value;
+				}
+			}
 		}
 	}
 }
